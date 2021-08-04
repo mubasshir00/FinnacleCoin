@@ -2,11 +2,13 @@ const redis = require('redis');
 
 const CHANNELS = {
     TEST: 'TEST',
-    BLOCKCHAIN:'BLOCKCHAIN'
+    BLOCKCHAIN:'BLOCKCHAIN',
+    TRANSACTION : 'TRANSACTION'
 };
 
 class PubSub {
-    constructor ({ blockchain }) {
+    constructor ({ blockchain , transactionPool }) {
+
         this.blockchain = blockchain;
         this.publisher = redis.createClient();
         this.subscriber = redis.createClient();
@@ -53,6 +55,7 @@ class PubSub {
             message: JSON.stringify(this.blockchain.chain)
         });
     }
+    
 }
 
 
