@@ -16,7 +16,7 @@ class Blockchain{
 
     //replacing the chain is based on an individual instance 
     // replaceChain() takes incoming chain as argument
-    replaceChain(chain){
+    replaceChain(chain,onSuccess){
         //check incoming chain <= current chain 
         if(chain.length<=this.chain.length){
             console.error('The incoming chain must be longer');
@@ -28,6 +28,8 @@ class Blockchain{
             console.error('The incoming chain must be valid');
             return;
         }
+
+        if(onSuccess)onSuccess();
         console.log('replacing chain with',chain);
         this.chain = chain
     }
