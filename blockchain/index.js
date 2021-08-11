@@ -1,4 +1,5 @@
 const Block = require('./block')
+const Wallet = require('../wallet')
 const {cryptoHash} = require('../util');
 const { REWARD_INPUT, MINING_REWARD } = require('../config');
 const Transaction = require('../wallet/transaction')
@@ -18,7 +19,7 @@ class Blockchain{
 
     //replacing the chain is based on an individual instance 
     // replaceChain() takes incoming chain as argument
-    replaceChain(chain,onSuccess){
+    replaceChain(chain,validateTransactions,onSuccess){
         //check incoming chain <= current chain 
         if(chain.length<=this.chain.length){
             console.error('The incoming chain must be longer');
@@ -31,6 +32,11 @@ class Blockchain{
             return;
         }
 
+        if(validateTransactions && !this.validTransactionData({chain})){
+            console.error('The incoming chain has invalid data');
+            return;
+        }
+
         if(onSuccess)onSuccess();
         console.log('replacing chain with',chain);
         this.chain = chain
@@ -39,6 +45,7 @@ class Blockchain{
     validTransactionData({chain}){
         for(let i=1;i<chain.length;i++){
             const block = chain[i];
+            const transactionSet = new Set();
             let rewardTransactionCount = 0;
 
             for(let transaction of block.data){
@@ -59,6 +66,23 @@ class Blockchain{
                     if(!Transaction.validTransactionData(transaction)){
                         console.error('Invalid Transaction');
                         return false;
+                    }
+                    
+                    const trueBalance = Wallet.calculateBalance({
+                        chain:this.chain,
+                        address:transaction.input.address
+                    });
+
+                    if(transaction.input.amount !== trueBalance){
+                        console.error('Invalid Input Amount');
+                        return false;
+                    }
+
+                    if(transactionSet.has(transaction)){
+                        console.log('An identical transaction app appears more than once in a block');
+                        return false;
+                    } else {
+                        transactionSet.add(transaction);
                     }
                 }
             }

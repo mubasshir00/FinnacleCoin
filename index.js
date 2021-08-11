@@ -62,7 +62,7 @@ app.post('/api/transact',(req,res)=>{
     pubsub.broadcastTransaction(transaction);
 
     res.json({type:'success',transaction});
-})
+});
 
 app.get('/api/transaction-pool-map',(req,res)=>{
     res.json(transactionPool.transactionMap);
@@ -81,8 +81,8 @@ app.get('/api/wallet-info',(req,res)=>{
             chain:blockchain.chain,
             address
         })
-    })
-})
+    });
+});
 
 const syncWithRootState = () => {
     request({ url: `${ROOT_NODE_ADDRESS}/api/blocks` }, (error,response,body) => {

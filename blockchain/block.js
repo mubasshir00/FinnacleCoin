@@ -1,6 +1,7 @@
 const hexToBinary = require('hex-to-binary')
 const {GENESIS_DATA , MINE_RATE} = require('../config');
 const {cryptoHash} = require('../util');
+//hash method is for crypthography and security
 class Block {
     constructor({timestamp , hash , lastHash , data,nonce,difficulty}){
         this.timestamp = timestamp ;
@@ -11,6 +12,7 @@ class Block {
         this.difficulty = difficulty;
     }
 
+    //initial dummy block 
     static genesis(){
         return new this(GENESIS_DATA) //genesis data from block.js
     }
@@ -22,7 +24,7 @@ class Block {
         // const timestamp = Date.now();
         let {difficulty} = lastBlock;
         let nonce = 0;
-
+//do while loop for proof of work
         do {
             nonce++;
             timestamp = Date.now();
