@@ -7,7 +7,7 @@ const TransactionPool = require('./wallet/transaction-pool');
 const Wallet = require('./wallet');
 const { response } = require('express');
 const TransactionMiner = require('./app/transaction-miner');
-
+const path = require('path');
 const app = express();
 const blockchain = new Blockchain();
 const transactionPool = new TransactionPool();
@@ -82,6 +82,11 @@ app.get('/api/wallet-info',(req,res)=>{
             address
         })
     });
+});
+
+// * for any endpoint
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'./client/index.html'));
 });
 
 const syncWithRootState = () => {
