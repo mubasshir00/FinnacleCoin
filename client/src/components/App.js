@@ -1,6 +1,7 @@
 // import { response } from 'express';
 import React ,{Component} from 'react';
-
+import Blocks  from './Blocks';
+import logo from '../assets/logo.png'
 class App extends Component{
 
     state = {walletInfo : {} }
@@ -17,14 +18,19 @@ class App extends Component{
 
         return (
             <div>
+                <img className="logo" src={logo} alt=""/>
+                <div className="transactionDiv">
                 <div>
-                <h1>Hello, Welcome to FinnacleCoin</h1>
+                    <h1>Hello, Welcome to FinnacleCoin</h1>
                 </div>
-                <div>
+                <div className="addressDiv">
                     Address : {address}
                 </div>
                 <div>
                     Balance : {balance}
+                </div>
+                <br/>
+                <Blocks/>
                 </div>
             </div>
         );
