@@ -1,10 +1,10 @@
 // import { response } from 'express';
 import React ,{Component} from 'react';
-import Blocks  from './Blocks';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 class App extends Component{
 
-    state = {walletInfo : {} }
+    state = {walletInfo : {} };
 
     componentDidMount(){
         fetch('http://localhost:3000/api/wallet-info')
@@ -23,14 +23,18 @@ class App extends Component{
                 <div>
                     <h1>Hello, Welcome to FinnacleCoin</h1>
                 </div>
+                <br/>
+                <div>
+                    <Link to="/blocks">Blocks</Link>
+                </div>
+                <br/>
                 <div className="addressDiv">
                     Address : {address}
                 </div>
                 <div>
                     Balance : {balance}
                 </div>
-                <br/>
-                <Blocks/>
+                
                 </div>
             </div>
         );
