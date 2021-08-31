@@ -27,6 +27,12 @@ class App extends Component{
                 <div>
                     <Link to="/blocks">Blocks</Link>
                 </div>
+                <div>
+                    <Link to="/creare-transaction">Create Transaction</Link>
+                </div>
+                <div>
+                    <Link to="/transaction-pool">Transaction Pool</Link>
+                </div>
                 <br/>
                 <div className="addressDiv">
                     Address : {address}
@@ -34,7 +40,6 @@ class App extends Component{
                 <div>
                     Balance : {balance}
                 </div>
-                
                 </div>
             </div>
         );
