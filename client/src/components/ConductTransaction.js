@@ -1,15 +1,22 @@
+import { response } from 'express';
 import React, { Component } from 'react'
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
 import {
-    BrowserRouter as 
     Link
 } from 'react-router-dom'
+
 import history from '../history'
 
 class ConductTransaction extends Component {
     state={
-        recipient: '',amount:0
+        recipient: '',amount:0,knownAddresses:[]
     };
+
+    componentDidMount(){
+        fetch(`${document.location.origin}/api/known-addresses`)
+         .then(response => response.json())
+         .then(json=>this.setState({knownAddresses:json}));
+    }
 
     updateRecipient = event =>{
         this.setState({recipient:event.target.value});
@@ -22,13 +29,13 @@ class ConductTransaction extends Component {
     conductTransaction = () =>{
         const {recipient,amount} = this.state;
 
-        fetch('http://localhost:3000/api/transact',{
+        fetch(`${document.location.origin}/api/transact`,{
             method: 'POST',
             headers:{ 'Content-Type' : 'application/json'},
             body: JSON.stringify({recipient,amount})
         }).then((response)=>response.json())
           .then(json=>{
-            // alert(json.message || json.type);
+            alert(json.message || json.type);
             history.push('/transaction-pool')
         });
     }
@@ -38,7 +45,20 @@ class ConductTransaction extends Component {
         return (
             <div className="ConductTransaction">
                 <Link to="/">Home</Link>
+                <h3>Conduct a transaction</h3>
+                <h4>Known Adresses</h4>
+                {
+                    this.state.knownAddresses.map(knownAddress =>{
+                        return(
+                            <div key={knownAddress}>
+                                {knownAddress}
+                                <br/>
+                            </div>
+                        )
+                    })
+                }
                 <h3>Create Transaction</h3>
+                <br/>
                 <FormGroup>
                     <FormControl
                     input="text"
