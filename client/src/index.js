@@ -12,10 +12,14 @@ import ConductTransaction from './components/ConductTransaction'
 import TransactionPool from './components/TransactionPool'
 import './index.css'
 import history from './history'
+import Home from './components/HomeComponents/Home'
+// import Signup from './components/SignInSignUp/Signup'
 render(
     <Router history={history}>
        <Switch>
-           <Route exact path="/" component={App}/>
+           <Route exact path="/" component={Home}/>
+           <Route exact path="/transactionhome" component={App}/>
+           {/* <Route exact path="/siginup" component={Signup}/> */}
            <Route  path="/blocks" component={Blocks}/>
            <Route  path="/creare-transaction" component={ConductTransaction}/>
            <Route  path="/transaction-pool" component={TransactionPool}/>

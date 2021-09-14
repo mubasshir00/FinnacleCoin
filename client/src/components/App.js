@@ -1,7 +1,9 @@
+
 // import { response } from 'express';
 import React ,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import Home from './HomeComponents/Home';
 class App extends Component{
 
     state = {walletInfo : {} };
@@ -18,7 +20,8 @@ class App extends Component{
 
         return (
             <div>
-                <img className="logo" src={logo} alt=""/>
+                {/* <img className="logo" src={logo} alt=""/> */}
+                {/* <Home/> */}
                 <div className="transactionDiv">
                 <div>
                     <h1>Hello, Welcome to FinnacleCoin</h1>

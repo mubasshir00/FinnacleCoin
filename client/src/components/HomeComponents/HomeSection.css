@@ -1,0 +1,206 @@
+.homeSection{
+    overflow: hidden;
+    background-color: white;
+}
+.homeSectionContainer{
+    max-width: 80rem;
+    box-sizing: content-box;
+    margin: 0px auto;
+    padding: 0px 2.5rem;
+}
+.featureSection{
+    border-radius: 1.25rem;
+    color: rgb(18, 29, 51);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(239, 236, 254, 0.5);
+    background-image: -webkit-image-set(url('https://www.blockchain.com/static/img/home/home-wallet-shapes-bg.png') 1x, url('https://www.blockchain.com/static/img/home/home-wallet-shapes-bg@2x.png') 2x);
+    background-repeat: no-repeat;
+    background-size: 625px;
+    background-position: right bottom 2.5rem;
+    min-height: 52.5rem;
+    margin: 3.75rem auto;
+    max-width: 80rem;
+}
+.leftCol ,.exchangeFeatureRight{
+    color: rgb(115, 73, 242);
+    /* -webkit-box-pack: start; */
+    justify-content: flex-start;
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    padding-left: 8.75rem;
+    flex-shrink: 0;
+}
+.leftCol h2 , .exchangeFeatureRight h2{
+    color: inherit;
+    margin: 0px 0px 1.875rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 3.25rem;
+}
+.featuresContent{
+        margin-bottom: 1.875rem;
+    max-width: 30.5rem;
+}
+.featuresContentWrapper{
+    border-radius: 0.75rem;
+    border: 0.0625rem solid rgb(222, 216, 253);
+    margin-bottom: 0.3rem;
+}
+.leftCol h3 , .exchangeFeatureRight h3{
+        color: rgb(115, 73, 242);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin: 0px;
+    padding: 1rem 1.25rem;
+    transition: color 0.25s ease 0s;
+    z-index: 1;
+    cursor: pointer;
+}
+.leftCol p , .exchangeFeatureRight p{
+        /* max-height: 0px; */
+    max-width: 80%;
+    /* opacity: 0; */
+    overflow: hidden;
+    padding: 0px 1.25rem;
+    transition: all 0ms ease 0s;
+}
+.getStarted{
+        display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 1.375rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 144%;
+    border-radius: 0.5rem;
+    border: 0.125rem solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: rgb(255, 255, 255);
+    background: rgb(115, 73, 242);
+    width: 50%;
+}
+
+.rightCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5rem;
+    flex-shrink: 0;
+}
+
+.rightColImageWrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightColImage{
+    position: absolute;
+}
+
+.exchangeSection{
+    overflow: hidden;
+}
+.exachangeSectionContainer{
+    max-width: 80rem;
+    box-sizing: border-box;
+    margin: 0px auto;
+    padding: 0px 2.5rem;
+}
+.exchangeFeature{
+        border-radius: 1.25rem;
+    color: rgb(18, 29, 51);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(239, 236, 254, 0.5);
+    background-image: -webkit-image-set(url('https://www.blockchain.com/static/img/home/home-exchange-shapes-bg.png') 1x, url('https://www.blockchain.com/static/img/home/home-exchange-shapes-bg@2x.png') 2x);
+    background-repeat: no-repeat;
+    background-size: 625px;
+    /* background-position: right bottom 2.5rem; */
+    min-height: 52.5rem;
+    margin: 3.75rem auto;
+    max-width: 80rem;
+}
+.exachngeLeft{
+        display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-left: 8.75rem;
+    flex-shrink: 0;
+}
+.leftWrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.exchangeImg{
+    position: absolute;
+}
+
+.exchangeFeatureRight{
+        -webkit-box-pack: start;
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-bottom: 100px;
+        display: flex;
+    flex-direction: column;
+    /* -webkit-box-pack: center; */
+    /* justify-content: center; */
+    padding-left: 5rem;
+    flex-shrink: 0;
+}
+
+.banner{
+    background-color: rgb(18, 29, 51);
+    background-image: url('https://www.blockchain.com/static/img/banner/banner-bg.svg');
+    background-repeat: no-repeat;
+    background-size: 1440px;
+    background-position: center top;
+    color: rgb(255, 255, 255);
+    padding: 80px 0px;
+}
+.bannerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bannerWrapper h2{
+        font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 3.25rem; 
+        margin: 0px 32px 0px 0px;
+
+}
+.bannerWrapper .link{
+        display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0.75rem 1.375rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 144%;
+    border-radius: 0.5rem;
+    border: 0.125rem solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: rgb(12, 108, 242);
+    background: rgb(255, 255, 255);
+}
